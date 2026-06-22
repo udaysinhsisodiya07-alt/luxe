@@ -2,8 +2,23 @@
 
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { useState } from 'react';
 
 export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setTimeout(() => setIsSuccess(false), 3000);
+      (e.target as HTMLFormElement).reset();
+    }, 1500);
+  };
+
   return (
     <section id="contact" className="py-24 bg-[#0A0A0A] border-t border-white/5 relative">
       {/* Glow Effects */}
@@ -36,9 +51,9 @@ export function Contact() {
                   <div>
                     <h5 className="font-bold text-white mb-1 uppercase tracking-wider text-xs">Address</h5>
                     <p className="text-gray-400 text-sm">
-                      150 Central Park South<br />
-                      New York, NY 10019<br />
-                      United States
+                      Level 4, The Capital<br />
+                      Bandra Kurla Complex, Mumbai<br />
+                      Maharashtra 400051, India
                     </p>
                   </div>
                 </li>
@@ -50,8 +65,8 @@ export function Contact() {
                   <div>
                     <h5 className="font-bold text-white mb-1 uppercase tracking-wider text-xs">Direct Line</h5>
                     <p className="text-gray-400 text-sm">
-                      +1 (212) 555-0198<br />
-                      Mon-Fri: 9am - 6pm EST
+                      +91 98200 12345<br />
+                      Mon-Fri: 9am - 6pm IST
                     </p>
                   </div>
                 </li>
@@ -80,7 +95,7 @@ export function Contact() {
                 loading="lazy" 
                 allowFullScreen 
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.060144369796!2d-73.978253184655!3d40.76569147932644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f97e2f5b89%3A0xe5a3f3aefee866de!2sCentral%20Park%20S%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1680540000000!5m2!1sen!2sus">
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15085.132578508197!2d72.85908332152861!3d19.0567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8e123f8d27b%3A0x43799f0f63a3cc16!2sBandra%20Kurla%20Complex%2C%20Bandra%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1680540000000!5m2!1sen!2sin">
               </iframe>
               <div className="absolute inset-0 bg-[#0A0A0A]/20 pointer-events-none" />
             </div>
@@ -91,36 +106,48 @@ export function Contact() {
             <h3 className="text-2xl font-bold text-white mb-2">Send an Inquiry</h3>
             <p className="text-gray-500 text-sm mb-8 font-medium">All information is kept strictly confidential.</p>
             
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase text-gray-500 font-bold mb-1 block px-2">First Name</label>
-                  <input type="text" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="John" />
+                  <input type="text" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="Kabir" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase text-gray-500 font-bold mb-1 block px-2">Last Name</label>
-                  <input type="text" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="Doe" />
+                  <input type="text" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="Singh" />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-[10px] uppercase text-gray-500 font-bold mb-1 block px-2">Email Address</label>
-                <input type="email" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="john@example.com" />
+                <input type="email" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="kabir@example.com" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-[10px] uppercase text-gray-500 font-bold mb-1 block px-2">Phone Number</label>
-                <input type="tel" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="+1 (555) 000-0000" />
+                <input type="tel" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="+91 98XXX XXXXX" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-[10px] uppercase text-gray-500 font-bold mb-1 block px-2">Your Message</label>
-                <textarea rows={4} className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors resize-none" placeholder="I am interested in..."></textarea>
+                <textarea required rows={4} className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors resize-none" placeholder="I am interested in..."></textarea>
               </div>
 
-              <button type="button" className="w-full py-3 bg-gradient-to-r from-[#D90429] to-[#8B0000] rounded-xl text-sm font-bold uppercase tracking-tighter shadow-lg shadow-[#D90429]/20 flex items-center justify-center gap-2 hover:shadow-[#D90429]/40 transition-all duration-300 mt-4 group text-white">
-                <Send className="w-4 h-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-                Submit Inquiry
+              <button 
+                type="submit" 
+                disabled={isSubmitting || isSuccess}
+                className="w-full py-3 bg-gradient-to-r from-[#D90429] to-[#8B0000] rounded-xl text-sm font-bold uppercase tracking-tighter shadow-lg shadow-[#D90429]/20 flex items-center justify-center gap-2 hover:shadow-[#D90429]/40 transition-all duration-300 mt-4 group text-white disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : isSuccess ? (
+                  <>Message Sent Successfully!</>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                    Submit Inquiry
+                  </>
+                )}
               </button>
             </form>
           </div>

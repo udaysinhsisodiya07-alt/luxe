@@ -74,7 +74,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase font-bold tracking-widest">
           <div className="flex gap-8">
-            <span>Global Offices: London • Dubai • New York • Tokyo</span>
+            <span>Core Markets: Mumbai • Delhi NCR • Goa • Hyderabad</span>
             <span>EST. 2012</span>
           </div>
           <div className="flex gap-6">

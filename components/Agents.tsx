@@ -8,20 +8,20 @@ const AGENTS = [
   {
     name: 'Sarah Montgomery',
     role: 'Managing Partner',
-    image: 'https://picsum.photos/seed/agent1/600/800',
-    sales: '$1.2B+'
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop',
+    sales: '₹ 1,200 Cr+'
   },
   {
     name: 'Alexandra Pierce',
     role: 'Director of Luxury Estates',
-    image: 'https://picsum.photos/seed/agent2/600/800',
-    sales: '$850M+'
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop',
+    sales: '₹ 850 Cr+'
   },
   {
     name: 'Marcus Sterling',
     role: 'Senior Vice President',
-    image: 'https://picsum.photos/seed/agent3/600/800',
-    sales: '$980M+'
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop',
+    sales: '₹ 1,500 Cr+'
   }
 ];
 
@@ -85,13 +85,13 @@ export function Agents() {
                   </div>
 
                   <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    <button className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-[#FF2D55] hover:border-[#FF2D55] hover:text-white transition-all text-white/80">
+                    <a href={`mailto:contact@luxeestates.com?subject=Inquiry for ${agent.name}`} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-[#FF2D55] hover:border-[#FF2D55] hover:text-white transition-all text-white/80">
                       <Mail className="w-4 h-4" />
-                    </button>
-                    <button className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-[#FF2D55] hover:border-[#FF2D55] hover:text-white transition-all text-white/80">
+                    </a>
+                    <a href="tel:+919820012345" className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-[#FF2D55] hover:border-[#FF2D55] hover:text-white transition-all text-white/80">
                       <Phone className="w-4 h-4" />
-                    </button>
-                    <button className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white hover:border-white hover:text-black transition-all text-white/80 ml-auto">
+                    </a>
+                    <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white hover:border-white hover:text-black transition-all text-white/80 ml-auto">
                       <ExternalLink className="w-4 h-4" />
                     </button>
                   </div>

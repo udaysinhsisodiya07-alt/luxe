@@ -1,24 +1,53 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, Search, MapPin } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
+const BACKGROUNDS = [
+  'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=2070&auto=format&fit=crop', // Lake Palace
+  'https://images.unsplash.com/photo-1585123388867-3bfe6dd4bdbf?q=80&w=2070&auto=format&fit=crop', // Taj Mahal Palace
+  'https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?q=80&w=2132&auto=format&fit=crop', // Luxury Interior
+  'https://images.unsplash.com/photo-1565557551069-b5b637df75c6?q=80&w=2070&auto=format&fit=crop', // Rambagh
+];
 
 export function Hero() {
+  const [currentBg, setCurrentBg] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % BACKGROUNDS.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
-      {/* Background Image & Overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="https://picsum.photos/seed/luxuryhome/1920/1080"
-          alt="Luxury Architecture"
-          fill
-          priority
-          className="object-cover object-center translate-y-[-10%] scale-110"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]/40" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#FF2D55]/10 via-transparent to-transparent" />
+      {/* Background Image Slider & Overlay */}
+      <div className="absolute inset-0 z-0 bg-black">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={currentBg}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={BACKGROUNDS[currentBg]}
+              alt="Luxury Architecture"
+              fill
+              priority
+              className="object-cover object-center translate-y-[-10%] scale-110"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]/40 z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#FF2D55]/10 via-transparent to-transparent z-10" />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex flex-col items-center md:items-start text-center md:text-left mt-20 md:mt-0">
@@ -56,14 +85,14 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-5"
         >
-          <button className="group flex items-center justify-center gap-3 px-8 py-3 bg-gradient-to-r from-[#D90429] to-[#8B0000] rounded-xl text-sm font-bold uppercase tracking-tighter shadow-lg shadow-[#D90429]/20 hover:shadow-xl hover:shadow-[#D90429]/40 transition-all duration-300 text-white">
+          <Link href="#properties" className="group flex items-center justify-center gap-3 px-8 py-3 bg-gradient-to-r from-[#D90429] to-[#8B0000] rounded-xl text-sm font-bold uppercase tracking-tighter shadow-lg shadow-[#D90429]/20 hover:shadow-xl hover:shadow-[#D90429]/40 transition-all duration-300 text-white">
             Explore Properties
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
           
-          <button className="flex items-center justify-center gap-3 px-8 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-sm font-bold uppercase tracking-tighter text-white">
+          <Link href="#contact" className="flex items-center justify-center gap-3 px-8 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-sm font-bold uppercase tracking-tighter text-white">
             Book Consultation
-          </button>
+          </Link>
         </motion.div>
       </div>
 

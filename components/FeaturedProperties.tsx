@@ -8,52 +8,59 @@ import { useState } from 'react';
 const PROPERTIES = [
   {
     id: 1,
-    title: 'The Sky Penthouse',
-    location: '150 Central Park South, New York',
-    price: '$24,500,000',
+    title: 'The Royal Marina Penthouse',
+    location: 'Worli Sea Face, Mumbai',
+    price: '₹ 45,00,00,000',
     beds: 5,
-    baths: 6.5,
+    baths: 6,
     area: '6,200',
-    image: 'https://picsum.photos/seed/penthouse/800/600',
-    tags: ['For Sale', 'Penthouse']
+    image: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=2070&auto=format&fit=crop',
+    tags: ['For Sale', 'Sea Facing']
   },
   {
     id: 2,
-    title: 'Modern Waterfront Villa',
-    location: '88 Star Island Dr, Miami Beach',
-    price: '$38,900,000',
+    title: 'Heritage Palace Estate',
+    location: 'Banjara Hills, Hyderabad',
+    price: '₹ 85,50,00,000',
     beds: 8,
     baths: 10,
-    area: '12,500',
-    image: 'https://picsum.photos/seed/villa/800/600',
-    tags: ['For Sale', 'Waterfront']
+    area: '14,500',
+    image: 'https://images.unsplash.com/photo-1599661559684-25befc0558b3?q=80&w=2070&auto=format&fit=crop',
+    tags: ['For Sale', 'Heritage']
   },
   {
     id: 3,
-    title: 'Beverly Hills Estate',
-    location: '900 N Crescent Dr, Beverly Hills',
-    price: '$45,000,000',
+    title: 'Lutyens Elite Bungalow',
+    location: 'Amrita Shergill Marg, New Delhi',
+    price: '₹ 120,00,00,000',
     beds: 7,
-    baths: 9,
-    area: '15,000',
-    image: 'https://picsum.photos/seed/mansion/800/600',
-    tags: ['Off Market', 'Estate']
+    baths: 8,
+    area: '12,000',
+    image: 'https://images.unsplash.com/photo-1613490908573-61b621dbde3e?q=80&w=2070&auto=format&fit=crop',
+    tags: ['Off Market', 'Exclusive']
   },
   {
     id: 4,
-    title: 'Alpine Minimalist Chalet',
-    location: 'Gstaad, Switzerland',
-    price: '$18,200,000',
-    beds: 6,
+    title: 'Luxury Beachfront Villa',
+    location: 'Assagao, Goa',
+    price: '₹ 22,50,00,000',
+    beds: 5,
     baths: 6,
     area: '8,400',
-    image: 'https://picsum.photos/seed/chalet/800/600',
-    tags: ['For Sale', 'Chalet']
+    image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=2070&auto=format&fit=crop',
+    tags: ['For Sale', 'Villa']
   }
 ];
 
 export function FeaturedProperties() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [favorites, setFavorites] = useState<number[]>([]);
+
+  const toggleFavorite = (id: number) => {
+    setFavorites(prev => 
+      prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id]
+    );
+  };
 
   return (
     <section id="properties" className="py-24 bg-[#0A0A0A] relative">
@@ -118,8 +125,15 @@ export function FeaturedProperties() {
                 </div>
 
                 {/* Favorite */}
-                <button className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md shadow-lg border border-white/10 flex items-center justify-center text-white/50 hover:text-[#FF2D55] hover:border-[#FF2D55] transition-all">
-                  <Heart className="w-4 h-4" />
+                <button 
+                  onClick={() => toggleFavorite(property.id)}
+                  className={`absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md shadow-lg border flex items-center justify-center transition-all ${
+                    favorites.includes(property.id) 
+                      ? 'text-[#FF2D55] border-[#FF2D55]' 
+                      : 'border-white/10 text-white/50 hover:text-[#FF2D55] hover:border-[#FF2D55]'
+                  }`}
+                >
+                  <Heart className={`w-4 h-4 ${favorites.includes(property.id) ? 'fill-[#FF2D55]' : ''}`} />
                 </button>
               </div>
 
@@ -180,7 +194,10 @@ export function FeaturedProperties() {
                   }}
                   className="overflow-hidden"
                 >
-                  <button className="w-full py-3 bg-gradient-to-r from-[#D90429] to-[#8B0000] rounded-xl text-sm font-bold uppercase tracking-tighter shadow-lg shadow-[#D90429]/20 flex items-center justify-center gap-2 hover:shadow-[#D90429]/40 transition-all text-white">
+                  <button 
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="w-full py-3 bg-gradient-to-r from-[#D90429] to-[#8B0000] rounded-xl text-sm font-bold uppercase tracking-tighter shadow-lg shadow-[#D90429]/20 flex items-center justify-center gap-2 hover:shadow-[#D90429]/40 transition-all text-white"
+                  >
                     View Details
                     <ArrowRight className="w-4 h-4" />
                   </button>

@@ -52,8 +52,11 @@ export function About() {
               ))}
             </div>
 
-            <button className="px-8 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-sm font-bold uppercase tracking-tighter mt-4 text-white">
-              More About Us
+            <button 
+              onClick={() => document.getElementById('properties')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-sm font-bold uppercase tracking-tighter mt-4 text-white"
+            >
+              Our Portfolio
             </button>
           </motion.div>
 
@@ -64,7 +67,7 @@ export function About() {
             className="relative h-[600px] w-full rounded-3xl overflow-hidden border border-white/10"
           >
             <Image
-              src="https://picsum.photos/seed/agency/800/1000"
+              src="https://images.unsplash.com/photo-1551882547-ff40c0d509af?q=80&w=1000&auto=format&fit=crop"
               alt="Luxury Real Estate Agent"
               fill
               className="object-cover"

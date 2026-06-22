@@ -5,21 +5,21 @@ import { Star, Quote } from 'lucide-react';
 
 const REVIEWS = [
   {
-    name: 'James Harrington',
-    role: 'Tech Executive',
-    text: '"The level of service provided by Luxe Estates is truly unmatched. They handled the purchase of our Manhattan penthouse with absolute discretion and precision. Highly recommended for the luxury buyer."',
+    name: 'Vikram Singhania',
+    role: 'Corporate Executive',
+    text: '"The level of service provided by Luxe Estates is truly unmatched. They handled the purchase of our Worli penthouse with absolute discretion and precision. Highly recommended for the luxury buyer."',
     rating: 5,
   },
   {
-    name: 'Sophia Laurent',
+    name: 'Aarti Desai',
     role: 'Art Collector',
-    text: '"Finding a property that met my specific architectural requirements seemed impossible until I met this team. Their portfolio of off-market estates is astonishing. Pure professionals."',
+    text: '"Finding a property that met my specific architectural requirements seemed impossible until I met this team. Their portfolio of off-market heritage estates in Rajasthan is astonishing. Pure professionals."',
     rating: 5,
   },
   {
-    name: 'William & Grace Cole',
+    name: 'Rahul & Neha Kapoor',
     role: 'International Investors',
-    text: '"From London to Miami, they made our luxury portfolio expansion seamless. A bespoke service that caters to every detail, ensuring a frictionless transaction from start to finish."',
+    text: '"From London to Mumbai, they made our luxury portfolio expansion seamless. A bespoke service that caters to every detail, ensuring a frictionless transaction from start to finish."',
     rating: 5,
   }
 ];

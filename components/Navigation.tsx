@@ -51,9 +51,9 @@ export function Navigation() {
 
         {/* CTA Button Desktop */}
         <div className="hidden lg:block">
-          <button className="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#FF2D55] text-white transition-all backdrop-blur-sm">
+          <Link href="#contact" className="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#FF2D55] text-white transition-all backdrop-blur-sm inline-block">
             Book Consultation
-          </button>
+          </Link>
         </div>
 
         {/* Mobile menu toggle */}
@@ -86,9 +86,9 @@ export function Navigation() {
                 </Link>
               ))}
               <div className="pt-6 border-t border-white/10">
-                <button className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF2D55] to-[#D90429] text-sm font-semibold uppercase tracking-widest text-white shadow-[0_8px_20px_rgba(255,45,85,0.3)]">
+                <Link href="#contact" onClick={() => setMobileMenuOpen(false)} className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-[#FF2D55] to-[#D90429] text-sm font-bold uppercase tracking-widest text-white shadow-[0_8px_20px_rgba(255,45,85,0.3)] block text-center">
                   Book Consultation
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>
