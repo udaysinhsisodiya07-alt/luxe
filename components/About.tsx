@@ -67,7 +67,7 @@ export function About() {
             className="relative h-[600px] w-full rounded-3xl overflow-hidden border border-white/10"
           >
             <Image
-              src="https://images.unsplash.com/photo-1551882547-ff40c0d509af?q=80&w=1000&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop"
               alt="Luxury Real Estate Agent"
               fill
               className="object-cover"

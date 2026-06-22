@@ -77,7 +77,8 @@ export function Footer() {
             <span>Core Markets: Mumbai • Delhi NCR • Goa • Hyderabad</span>
             <span>EST. 2012</span>
           </div>
-          <div className="flex gap-6">
+          <div className="flex gap-6 items-center">
+            <Link href="/admin" className="hover:text-[#FF2D55] text-gray-400 cursor-pointer transition-colors border-r border-white/10 pr-6">Admin Portal</Link>
             <Link href="#" className="hover:text-[#FF2D55] cursor-pointer transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-[#FF2D55] cursor-pointer transition-colors">Terms of Luxury</Link>
             <span className="text-white/40 italic flex-shrink-0">Experience Redefined.</span>

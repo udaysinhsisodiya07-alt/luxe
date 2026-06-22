@@ -11,6 +11,21 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = {
+      id: Date.now(),
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      message: formData.get('message'),
+      date: new Date().toLocaleString()
+    };
+
+    const existingBookings = JSON.parse(localStorage.getItem('luxury_bookings') || '[]');
+    localStorage.setItem('luxury_bookings', JSON.stringify([data, ...existingBookings]));
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
@@ -110,27 +125,27 @@ export function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase text-gray-500 font-bold mb-1 block px-2">First Name</label>
-                  <input type="text" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="Kabir" />
+                  <input name="firstName" required type="text" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="Kabir" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase text-gray-500 font-bold mb-1 block px-2">Last Name</label>
-                  <input type="text" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="Singh" />
+                  <input name="lastName" required type="text" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="Singh" />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-[10px] uppercase text-gray-500 font-bold mb-1 block px-2">Email Address</label>
-                <input type="email" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="kabir@example.com" />
+                <input name="email" required type="email" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="kabir@example.com" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-[10px] uppercase text-gray-500 font-bold mb-1 block px-2">Phone Number</label>
-                <input type="tel" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="+91 98XXX XXXXX" />
+                <input name="phone" required type="tel" className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors" placeholder="+91 98XXX XXXXX" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-[10px] uppercase text-gray-500 font-bold mb-1 block px-2">Your Message</label>
-                <textarea required rows={4} className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors resize-none" placeholder="I am interested in..."></textarea>
+                <textarea name="message" required rows={4} className="w-full bg-[#121212] border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-[#FF2D55]/50 transition-colors resize-none" placeholder="I am interested in..."></textarea>
               </div>
 
               <button 

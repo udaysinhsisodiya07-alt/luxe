@@ -6,21 +6,21 @@ import { Mail, Phone, ExternalLink } from 'lucide-react';
 
 const AGENTS = [
   {
-    name: 'Sarah Montgomery',
+    name: 'Priya Desai',
     role: 'Managing Partner',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop',
     sales: '₹ 1,200 Cr+'
   },
   {
-    name: 'Alexandra Pierce',
+    name: 'Vikram Singh',
     role: 'Director of Luxury Estates',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop',
     sales: '₹ 850 Cr+'
   },
   {
-    name: 'Marcus Sterling',
+    name: 'Neha Kapoor',
     role: 'Senior Vice President',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop',
     sales: '₹ 1,500 Cr+'
   }
 ];

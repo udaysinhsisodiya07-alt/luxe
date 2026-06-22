@@ -25,7 +25,7 @@ const PROPERTIES = [
     beds: 8,
     baths: 10,
     area: '14,500',
-    image: 'https://images.unsplash.com/photo-1599661559684-25befc0558b3?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2070&auto=format&fit=crop',
     tags: ['For Sale', 'Heritage']
   },
   {
@@ -36,7 +36,7 @@ const PROPERTIES = [
     beds: 7,
     baths: 8,
     area: '12,000',
-    image: 'https://images.unsplash.com/photo-1613490908573-61b621dbde3e?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop',
     tags: ['Off Market', 'Exclusive']
   },
   {

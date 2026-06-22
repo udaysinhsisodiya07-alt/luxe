@@ -10,7 +10,7 @@ const BACKGROUNDS = [
   'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=2070&auto=format&fit=crop', // Lake Palace
   'https://images.unsplash.com/photo-1585123388867-3bfe6dd4bdbf?q=80&w=2070&auto=format&fit=crop', // Taj Mahal Palace
   'https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?q=80&w=2132&auto=format&fit=crop', // Luxury Interior
-  'https://images.unsplash.com/photo-1565557551069-b5b637df75c6?q=80&w=2070&auto=format&fit=crop', // Rambagh
+  'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2070&auto=format&fit=crop', // Rambagh
 ];
 
 export function Hero() {
